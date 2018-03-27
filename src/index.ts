@@ -1,7 +1,6 @@
 import * as Koa from 'koa';
 import Enhancer from './middleware/enhancer';
 import Router from './middleware/router';
-import * as webpack from 'webpack';
 
 class Oxz {
   private app: Koa;
