@@ -17,8 +17,8 @@ export default class Ehancer {
   private config: MockConfig;
   private plugins: Array<Function>;
 
-  constructor(config: string|Object) {
-    this.config = new ConfigConstructor(config).get();
+  constructor(config: MockConfig) {
+    this.config = config;
     this.hooks = new Emitter(null);
     this.plugins = [
       MockPathPlugin(),

@@ -1,8 +1,13 @@
 import * as pathTo from 'path';
 
+export interface ProxyConfig {
+  enable?: Boolean;
+  rules?: Array<Object>;
+}
+
 export interface MockConfig {
   local: Object;
-  proxy: Object;
+  proxy: ProxyConfig;
   plugins: Array<Function>;
 }
 
@@ -16,6 +21,7 @@ export class ConfigConstructor {
     }
 
     this.config.plugins = this.config.plugins || [];
+    this.config.proxy = this.config.proxy || {};
   }
   get(): MockConfig {
     return this.config;

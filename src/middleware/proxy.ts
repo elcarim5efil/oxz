@@ -7,7 +7,7 @@ import * as pathToRegexp from 'path-to-regexp';
 function getProxyConfig(ctx: Context) {
   const { proxy } = ctx.mock.config;
 
-  const res = proxy.rules.local.find((rule: any) => {
+  const res = proxy.rules.find((rule: any) => {
     const match = rule.pathes.some((path: any) => {
       if (path === '*' || pathToRegexp(path).test(ctx.path)) {
         return true;

@@ -3,6 +3,7 @@ import Enhancer from './middleware/enhancer';
 import Router from './middleware/router';
 import Proxy from './middleware/proxy';
 import * as BodyParser from 'koa-bodyparser';
+import { ConfigConstructor, MockConfig } from './helpers/config-constructor';
 
 class Oxz {
   private app: Koa;
@@ -12,13 +13,18 @@ class Oxz {
     this.app.listen(3000);
     console.log('Server running in 3000');
   }
-  static install(app: Koa, option: Object) {
-    app.use(new Enhancer(option).enhance());
+  static install(app: Koa, option: Object|string) {
+    const config = new ConfigConstructor(option).get()
+    const enableProxy = config.proxy && config.proxy.enable;
 
-    // app.use(BodyParser());
-    // app.use(new Router().routes());
+    app.use(new Enhancer(config).enhance());
 
-    app.use(new Proxy().proxy());
+    if (!enableProxy) {
+      app.use(BodyParser());
+      app.use(new Router().routes());
+    } else {
+      app.use(new Proxy().proxy());
+    }
   }
 }
 
