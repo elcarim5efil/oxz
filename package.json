@@ -7,19 +7,22 @@
     "example": "example"
   },
   "dependencies": {
+    "http-proxy": "^1.16.2",
     "json5": "^1.0.1",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.5",
+    "path-to-regexp": "^2.2.0"
   },
   "devDependencies": {
+    "@types/http-proxy": "^1.16.0",
     "@types/json5": "0.0.29",
     "@types/koa": "^2.0.44",
     "@types/koa-bodyparser": "^4.2.0",
     "@types/lodash": "^4.14.106"
   },
   "scripts": {
-    "prepublish": "tsc"
+    "prepublishOnly": "tsc"
   },
   "repository": {
     "type": "git",
