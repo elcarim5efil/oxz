@@ -8,11 +8,15 @@
   },
   "dependencies": {
     "json5": "^1.0.1",
-    "koa": "^2.5.0"
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
     "@types/json5": "0.0.29",
-    "@types/koa": "^2.0.44"
+    "@types/koa": "^2.0.44",
+    "@types/koa-bodyparser": "^4.2.0",
+    "@types/lodash": "^4.14.106"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

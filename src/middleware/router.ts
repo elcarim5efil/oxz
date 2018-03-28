@@ -27,7 +27,6 @@ export default class Router {
 
         await ctx.mock.hooks.emit('beforeResponse', ctx);
       } catch(err) {
-        console.log(err)
         next();
       }
     }

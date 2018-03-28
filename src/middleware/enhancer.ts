@@ -6,6 +6,7 @@ import Emitter from '../helpers/emitter';
 
 import MockPathPlugin from '../plugins/mock-path-plugin';
 import JsMockPlugin from '../plugins/js-mock-plugin';
+import * as utils from '../utils';
 
 export interface PluginConfig {
   hooks: Emitter;
@@ -44,7 +45,8 @@ export default class Ehancer {
           config: self.config,
           plugins: self.plugins,
           hooks: self.hooks,
-          JSONReader: new JSONReader(ctx)
+          JSONReader: new JSONReader(ctx),
+          utils: utils
         }
       });
 
