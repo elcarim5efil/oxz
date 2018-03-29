@@ -1,10 +1,9 @@
 import * as Koa from 'koa';
-import Enhancer from './middleware/enhancer';
-import Router from './middleware/router';
-import Proxy from './middleware/proxy';
 import * as compose from 'koa-compose';
 import * as BodyParser from 'koa-bodyparser';
-import { ConfigConstructor, MockConfig } from './helpers/config-constructor';
+import { ConfigConstructor, Emitter } from './helpers';
+import { MockConfig, MockObject } from './types';
+import { Session, Local, Proxy } from './middlewares';
 
 class Oxz {
   private app: Koa;
@@ -18,16 +17,24 @@ class Oxz {
 
   static middleware(option: Object|string) {
     const config = new ConfigConstructor(option).get();
+    const hooks = new Emitter(null);
+
+    const mock = {
+      config,
+      hooks
+    };
+
     const enableProxy = config.proxy && config.proxy.enable;
     const middlewares = [];
 
-    middlewares.push(new Enhancer(config).enhance());
+    // middlewares.push(BodyParser());
+    
+    middlewares.push(new Session(mock).routes());
 
-    if (!enableProxy) {
-      middlewares.push(BodyParser());
-      middlewares.push(new Router().routes());
+    if (enableProxy) {
+      middlewares.push(new Proxy(mock).routes());
     } else {
-      middlewares.push(new Proxy().proxy());
+      middlewares.push(new Local(mock).routes());
     }
 
     return compose(middlewares)

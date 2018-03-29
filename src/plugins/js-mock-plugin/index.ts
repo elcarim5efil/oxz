@@ -1,11 +1,11 @@
 import * as fs from 'fs';
 import * as pathTo from 'path';
 import { Context } from 'koa';
-import { PluginConfig } from '../middleware/enhancer';
+import { PluginConfig } from '../../types';
 
 export default function(): Function {
   return function(oxz: PluginConfig) {
-    oxz.hooks.on('jsonRead', async (ctx: Context) => {
+    oxz.hooks.on('requested', async (ctx: Context) => {
       const { config, mockPath } = ctx.mock;
       const jsPath = pathTo.join(config.local.root, `${mockPath}.js`);
       if (fs.existsSync(jsPath)) {

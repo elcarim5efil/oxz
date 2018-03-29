@@ -1,6 +1,6 @@
 import { Context } from 'koa';
-import { PluginConfig } from '../middleware/enhancer';
 import * as pathTo from 'path';
+import { PluginConfig } from '../../types';
 
 export default function() {
   return function(oxz: PluginConfig) {

@@ -1,14 +1,14 @@
+import { Context } from 'koa';
+import * as json5 from 'json5';
 import * as pathTo from 'path';
 import * as fs from 'fs';
-import * as json5 from 'json5';
-import { Context } from 'koa';
 
-export default class JsonReader {
+export default class JSONReader {
   private ctx: Context;
   constructor(ctx?: Context) {
     this.ctx = ctx;
   }
-  read(path: string) {
+  read(path?: string) {
     const { ctx } = this;
     const { config } = ctx.mock;
     let mockPath = path || ctx.mock.mockPath || ctx.path;
@@ -43,5 +43,4 @@ export default class JsonReader {
       }
     });
   }
-  
 }

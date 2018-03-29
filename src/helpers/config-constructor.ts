@@ -1,17 +1,7 @@
 import * as pathTo from 'path';
+import { MockConfig } from '../types';
 
-export interface ProxyConfig {
-  enable?: Boolean;
-  rules?: Array<Object>;
-}
-
-export interface MockConfig {
-  local: Object;
-  proxy: ProxyConfig;
-  plugins: Array<Function>;
-}
-
-export class ConfigConstructor {
+export default class ConfigConstructor {
   private config: MockConfig;
   constructor(config?: any) {
     if (typeof config === 'string') {
