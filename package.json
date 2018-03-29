@@ -11,6 +11,7 @@
     "json5": "^1.0.1",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
+    "koa-compose": "^4.0.0",
     "lodash": "^4.17.5",
     "path-to-regexp": "^2.2.0"
   },
