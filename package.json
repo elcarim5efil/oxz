@@ -17,10 +17,13 @@
   },
   "devDependencies": {
     "@types/http-proxy": "^1.16.0",
+    "@types/jest": "^22.2.2",
     "@types/json5": "0.0.29",
     "@types/koa": "^2.0.44",
     "@types/koa-bodyparser": "^4.2.0",
-    "@types/lodash": "^4.14.106"
+    "@types/lodash": "^4.14.106",
+    "jest": "^22.4.3",
+    "ts-jest": "^22.4.2"
   },
   "scripts": {
     "prepublishOnly": "tsc"
@@ -38,5 +41,19 @@
   "bugs": {
     "url": "https://github.com/elcarim5efil/oxz/issues"
   },
-  "homepage": "https://github.com/elcarim5efil/oxz#readme"
+  "homepage": "https://github.com/elcarim5efil/oxz#readme",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
 }
