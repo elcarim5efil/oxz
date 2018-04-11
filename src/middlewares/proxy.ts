@@ -59,7 +59,7 @@ export default class Proxy extends Base{
     const { proxy } = ctx.mock.config;
 
     const res = proxy.rules.find((rule: any) => {
-      const match = rule.pathes.some((path: any) => {
+      const match = rule.paths.some((path: any) => {
         if (path === '*' || pathToRegexp(path).test(ctx.path)) {
           return true;
         }

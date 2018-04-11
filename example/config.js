@@ -8,14 +8,14 @@ module.exports = {
     enable: false,
     rules: [
       {
-        pathes: [
+        paths: [
           '/userAvatarAndCartNumAjax.html'
         ],
         target: 'https://59.111.160.202',
         host: 'm.kaola.com'
       },
       {
-        pathes: [
+        paths: [
           '*'
         ],
         target: 'http://localhost:9000',
