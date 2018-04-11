@@ -11,6 +11,10 @@ export default class Proxy extends Base{
   constructor(mock: MockObject) {
     super(mock);
     this.proxy = httpProxy.createProxyServer({});
+
+    this.proxy.on('error', (e) => {
+      console.error('Proxy error', e);
+    });
   }
   routes() {
     return async (ctx: Context, next: Function):Promise<any> => {
@@ -44,13 +48,11 @@ export default class Proxy extends Base{
         res,
         proxyOption,
         function(e) {
-          console.log('callback', e)
+          console.log('Proxy error', e)
+          ctx.body = e;
           resolve()
         }
       )
-      this.proxy.on('error', (e) => {
-        console.error('proxy error', e);
-      });
     });
   }
   getProxyConfig(ctx: Context) {

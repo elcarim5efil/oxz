@@ -13,7 +13,6 @@ export default class Local extends Base {
   protected plugins: Array<Function>;
 
   constructor(mock: MockObject) {
-    // this.bodyParser = BodyParser();
     super(mock);
     this.plugins = [
       MockPathPlugin(),

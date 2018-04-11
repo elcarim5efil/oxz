@@ -1,6 +1,6 @@
 {
   "name": "oxz",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "oxz",
   "main": "dist/index.js",
   "directories": {
@@ -23,10 +23,13 @@
     "@types/koa-bodyparser": "^4.2.0",
     "@types/lodash": "^4.14.106",
     "jest": "^22.4.3",
-    "ts-jest": "^22.4.2"
+    "ts-jest": "^22.4.2",
+    "tsc": "^1.20150623.0",
+    "typescript": "^2.8.1"
   },
   "scripts": {
-    "prepublishOnly": "tsc"
+    "prepublishOnly": "node_modules/typescript/bin/tsc",
+    "dev": "node_modules/typescript/bin/tsc -w"
   },
   "repository": {
     "type": "git",

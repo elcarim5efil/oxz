@@ -1,6 +1,5 @@
 import * as Koa from 'koa';
 import * as compose from 'koa-compose';
-import * as BodyParser from 'koa-bodyparser';
 import { ConfigConstructor, Emitter } from './helpers';
 import { MockConfig, MockObject } from './types';
 import { Session, Local, Proxy } from './middlewares';
@@ -27,8 +26,6 @@ class Oxz {
     const enableProxy = config.proxy && config.proxy.enable;
     const middlewares = [];
 
-    // middlewares.push(BodyParser());
-    
     middlewares.push(new Session(mock).routes());
 
     if (enableProxy) {
