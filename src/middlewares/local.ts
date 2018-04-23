@@ -33,7 +33,7 @@ export default class Local extends Base {
             console.warn(`json stringify error: ${err}`);
           }
         }
-        ctx.status = 200;
+        ctx.status = ctx.status || 200;
       } catch(err) {
         next();
       }
