@@ -6,7 +6,6 @@ export default function(): Function {
   return function(oxz: PluginConfig) {
     oxz.hooks.on('requested', async (ctx: Context) => {
       const data = await new JSONReader(ctx).read();
-      console.log(data);
       ctx.body = data;
     });
   }
